@@ -1,0 +1,17 @@
+services:
+  # 服务 A: RSS 生成器 (生产者)
+  rss-gen:
+    build: .
+    container_name: navidrome_rss
+    restart: unless-stopped
+    environment:
+      # 唯一需要的配置
+      - BASE_URL=http://public.music.s3xyseia.xyz/
+      # 容器内部路径 (保持默认即可)
+      - OUTPUT_FILE=/output/feed.xml
+      - INTERVAL=1800
+    volumes:
+      # [关键映射 1]
+      # 宿主机路径 : 容器内路径
+      # 将宿主机的 ./static_rss 目录 挂载到 容器的 /output
+      - ./static/rss :/output
