@@ -14,4 +14,4 @@ services:
       # [关键映射 1]
       # 宿主机路径 : 容器内路径
       # 将宿主机的 ./static_rss 目录 挂载到 容器的 /output
-      - ./static/rss :/output
+      - ./static/rss:/output
