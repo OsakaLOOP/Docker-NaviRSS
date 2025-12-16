@@ -52,7 +52,7 @@ def fetch_and_generate():
         aid = album.get('id')
         
         # 链接生成
-        link = f"{BASE_URL}/#/album/{aid}/show"
+        link = f"{BASE_URL}/goto/album/{aid}/show"
         cover = f"{BASE_URL}/rest/getCoverArt?id={aid}&v=1.16.1&c=rss"
         
         ET.SubElement(item, "title").text = f"{album.get('name')} - {album.get('artist')}"
